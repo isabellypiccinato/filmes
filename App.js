@@ -25,11 +25,22 @@ export default function App() {
 
         <TextInput
         placeholder='Digite o filme que deseja buscar'
+        style = {styles.inputSearch}
         ></TextInput>
-
+        <TouchableOpacity>
+        <Feather name="search" size={24} color="black" />
+        </TouchableOpacity>
         </View>
        
         {/* inicio do banner */}
+
+        <Text style = {styles.textBanner}> Em cartaz </Text>
+
+        <Image
+        source={require("./assets/MV5BYjliOTRhMTgtZTFiOS00OTNhLTk1NWQtYTc5MTg1NzkyM2YxXkEyXkFqcGc@._V1_QL75_UX500_CR0,13,500,281_.jpg")}
+        style ={styles.imageBanner}
+
+        />
 
     </View>
   );
@@ -62,7 +73,33 @@ const styles = StyleSheet.create({
     width:"90%",
     backgroundColor:'white',
     borderRadius:5,
+    padding:4,
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems: 'center'
+  },
+
+  inputSearch:{
+    height:40,
     padding:8,
+    width:'100%'
+  },
+
+  imageBanner:{
+    width:'90%',
+    height:200,
+    marginTop:15,
+    borderRadius:10
+
+  },
+
+  textBanner:{
+    color:'white',
+    width:'90%',
+    fontSize:30,
+    marginTop:20,
+    fontWeight:'bold'
+    
   }
 
   
