@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image} from 'react
 import Feather from '@expo/vector-icons/Feather';
 import Header  from './src/components/Header';
 import Search from './src/components/Search'
+import Banner from './src/components/Banner';
+import { FlatList } from 'react-native-web';
+import DATA from './movies.js'
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -18,15 +22,22 @@ export default function App() {
        
         {/* inicio do banner */}
 
-        <Text style = {styles.textBanner}> Em cartaz </Text>
+        <Banner></Banner>
 
-        <Image
-        source={require("./assets/MV5BYjliOTRhMTgtZTFiOS00OTNhLTk1NWQtYTc5MTg1NzkyM2YxXkEyXkFqcGc@._V1_QL75_UX500_CR0,13,500,281_.jpg")}
-        style ={styles.imageBanner}
-
-        />
-
-    </View>
+        <View style = {{width: '90%'}}>
+          <FlatList 
+          horizontal= {true}
+          data={DATA}
+          keyExtractor={(item)=> item.id}
+          renderItem={({item}) => (
+            <TouchableOpacity>
+              <Image style ={{width:80,height: 100}} source={{uri:item.imagem}}></Image>
+            <Text> {item.nome} </Text>
+            </TouchableOpacity>
+          )}
+          />
+        </View>
+        </View>
   );
 }
 
@@ -37,22 +48,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     
   },
-  imageBanner:{
-    width:'90%',
-    height:200,
-    marginTop:15,
-    borderRadius:10
-
-  },
-
-  textBanner:{
-    color:'white',
-    width:'90%',
-    fontSize:30,
-    marginTop:20,
-    fontWeight:'bold'
-    
-  }
+  
 
   
 });
