@@ -6,6 +6,7 @@ import Search from './src/components/Search'
 import Banner from './src/components/Banner';
 import { FlatList } from 'react-native-web';
 import DATA from './movies.js'
+import CardMovies from './src/components/CardMovies';
 
 export default function App() {
   return (
@@ -30,10 +31,11 @@ export default function App() {
           data={DATA}
           keyExtractor={(item)=> item.id}
           renderItem={({item}) => (
-            <TouchableOpacity>
-              <Image style ={{width:80,height: 100}} source={{uri:item.imagem}}></Image>
-            <Text> {item.nome} </Text>
-            </TouchableOpacity>
+            <CardMovies
+            nome={item.nome}
+            imagem={item.imagem}
+            nota={item.nota}
+            />
           )}
           />
         </View>
