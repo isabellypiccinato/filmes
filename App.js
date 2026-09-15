@@ -7,6 +7,7 @@ import Banner from './src/components/Banner';
 import { FlatList } from 'react-native-web';
 import DATA from './movies.js'
 import CardMovies from './src/components/CardMovies';
+import Rotas from './src/Rotas'
 
 export default function App() {
   return (
