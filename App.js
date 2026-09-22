@@ -11,36 +11,7 @@ import Rotas from './src/Rotas'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-
-        {/* inicio da header */}
-
-        <Header></Header>
-
-
-        {/* inicio da barra pesquisa */}
-
-        <Search></Search>
-       
-        {/* inicio do banner */}
-
-        <Banner></Banner>
-
-        <View style = {{width: '90%'}}>
-          <FlatList 
-          horizontal= {true}
-          data={DATA}
-          keyExtractor={(item)=> item.id}
-          renderItem={({item}) => (
-            <CardMovies
-            nome={item.nome}
-            imagem={item.imagem}
-            nota={item.nota}
-            />
-          )}
-          />
-        </View>
-        </View>
+    <Rotas></Rotas>
   );
 }
 
